@@ -1,9 +1,9 @@
 ---
-name: sponsorship-job-screener
+name: resume-matched-sponsorship-aware-job-discovery
 description: Discover, open, screen, deduplicate, and rank recent job postings against a private candidate profile and future sponsorship needs. Use when an agent needs to search LinkedIn, Indeed, Glassdoor, public job boards, or employer career pages; apply one recency cutoff across sources; optionally exclude LinkedIn Easy Apply; reject explicit sponsorship conflicts; evaluate full-job-description fit; suppress previously presented or applied jobs; and return application links without submitting applications.
 ---
 
-# Sponsorship Job Screener
+# Resume-Matched & Sponsorship-Aware Job Discovery
 
 Produce a current, repeat-free application shortlist without asking the user to collect job links manually. Treat job titles as discovery hints and base fit on the full job description and factual candidate evidence.
 

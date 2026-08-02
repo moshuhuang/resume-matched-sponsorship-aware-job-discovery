@@ -1,10 +1,16 @@
-# Sponsorship Job Screener
+# Resume-Matched & Sponsorship-Aware Job Discovery
 
-![Sponsorship Job Screener workflow](docs/workflow.png)
+![Resume-Matched and Sponsorship-Aware Job Discovery workflow](docs/workflow.png)
 
-An open-source agent skill that turns a broad job search into a smaller, application-ready shortlist. It discovers recent roles across job boards and employer career sites, removes explicit work-authorization conflicts, evaluates the full job description against a candidate profile, excludes high-volume LinkedIn Easy Apply routes when requested, and keeps a local history ledger so the same job is not shown twice.
+## Why I Built This
 
-The project addresses a common failure mode in sponsorship-dependent job searches: candidates spend substantial time opening roles that later disclose they cannot provide current or future sponsorship. This skill applies that constraint before detailed resume matching, reducing wasted effort and negative feedback without pretending that silence in a job description guarantees sponsorship.
+If you are an international student, have you ever carefully filtered LinkedIn for the newest opportunities, opened ten job postings, and discovered that nine of them explicitly state that sponsorship is not available?
+
+Repeating this process consumes a significant amount of time and energy before an application even begins. I built Resume-Matched & Sponsorship-Aware Job Discovery to turn that search into a focused list of opportunities worth applying to. It searches according to your preferences, removes roles with explicit sponsorship conflicts, and compares each full job description against your resume—not just the job title—to identify positions that genuinely match your experience.
+
+I know that job searching can be a long process in which most visible feedback comes in the form of silence, rejection, or disqualification. This tool cannot remove that uncertainty, and a sponsorship-silent posting is never treated as a guarantee. I hope it can reduce some of the avoidable negative feedback caused by sponsorship constraints during the search stage and help candidates spend more time applying to opportunities that truly fit. Wishing everyone a smoother job search—and the right opportunity.
+
+This open-source agent skill discovers recent roles across job boards and employer career sites, applies work-authorization constraints, evaluates full-job-description fit, excludes high-volume LinkedIn Easy Apply routes when requested, and keeps a private local history ledger so the same job is not shown twice.
 
 ## What it does
 
@@ -39,21 +45,21 @@ The sponsorship rule is deliberately conservative: a current explicit denial is 
 With GitHub CLI 2.90 or later:
 
 ```bash
-gh skills install OWNER/sponsorship-job-screener sponsorship-job-screener
+gh skills install OWNER/resume-matched-sponsorship-aware-job-discovery resume-matched-sponsorship-aware-job-discovery
 ```
 
-For a manual Codex installation, copy `skills/sponsorship-job-screener` into your local skills directory:
+For a manual Codex installation, copy `skills/resume-matched-sponsorship-aware-job-discovery` into your local skills directory:
 
 ```bash
 mkdir -p "${CODEX_HOME:-$HOME/.codex}/skills"
-cp -R skills/sponsorship-job-screener "${CODEX_HOME:-$HOME/.codex}/skills/"
+cp -R skills/resume-matched-sponsorship-aware-job-discovery "${CODEX_HOME:-$HOME/.codex}/skills/"
 ```
 
 Keep your real resume, candidate profile, job descriptions, and history ledger outside this repository. Start from [`candidate-profile.example.md`](examples/candidate-profile.example.md), save the completed file in a private local directory, and point the agent to it in your prompt.
 
 ## Example prompt
 
-> Use `$sponsorship-job-screener` to find US analyst roles posted in the last 72 hours across LinkedIn, Indeed, Glassdoor, and employer career pages. Exclude LinkedIn Easy Apply. Reject explicit current-or-future sponsorship denials, compare each full JD with my private candidate profile, suppress jobs in my local history ledger, and return up to 25 roles ranked by fit and then recency. Do not apply.
+> Use `$resume-matched-sponsorship-aware-job-discovery` to find US analyst roles posted in the last 72 hours across LinkedIn, Indeed, Glassdoor, and employer career pages. Exclude LinkedIn Easy Apply. Reject explicit current-or-future sponsorship denials, compare each full JD with my private candidate profile, suppress jobs in my local history ledger, and return up to 25 roles ranked by fit and then recency. Do not apply.
 
 ## Sponsorship decision policy
 

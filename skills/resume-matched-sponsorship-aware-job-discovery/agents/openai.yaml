@@ -1,0 +1,4 @@
+interface:
+  display_name: "Resume-Matched & Sponsorship-Aware Job Discovery"
+  short_description: "Match full JDs and screen sponsorship constraints"
+  default_prompt: "Use $resume-matched-sponsorship-aware-job-discovery to find recent jobs, reject explicit sponsorship conflicts, and rank the remaining roles against my resume."

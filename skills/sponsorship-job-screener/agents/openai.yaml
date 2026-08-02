@@ -1,4 +1,0 @@
-interface:
-  display_name: "Sponsorship Job Screener"
-  short_description: "Find recent jobs that fit and may support sponsorship"
-  default_prompt: "Use $sponsorship-job-screener to find recent jobs, reject explicit sponsorship conflicts, and rank the remaining roles against my resume."
