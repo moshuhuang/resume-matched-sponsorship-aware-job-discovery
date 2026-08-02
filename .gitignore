@@ -1,0 +1,19 @@
+.DS_Store
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Private runtime data
+private/
+local-data/
+candidate-profile.md
+resume.*
+job-history.json
+*.ledger.json
+*.private.json
+*.private.md
+
+# Generated reports
+reports/
+shortlist.*
