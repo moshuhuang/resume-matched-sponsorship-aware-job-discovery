@@ -1,6 +1,45 @@
-# Resume-Matched & Sponsorship-Aware Job Discovery
+# AI Job Discovery & Fit-Ranking Skill
 
-![Resume-Matched and Sponsorship-Aware Job Discovery workflow](docs/workflow.png)
+> A reusable AI skill that turns multi-platform job discovery into a personalized, resume-aware application shortlist.
+
+**[View Live Product](https://claude.ai/code/artifact/fa91279a-015b-43f6-8c53-1df7345fca04)** · **[How It Works](#how-it-works)** · **[Install](#install)**
+
+`Multi-platform discovery` · `Full-JD analysis` · `Sponsorship-aware screening` · `Explainable fit ranking`
+
+## Product Demo
+
+<p align="center">
+  <img src="docs/product-dashboard.png" alt="Job discovery dashboard showing screened jobs, application status, and role categories" width="100%">
+</p>
+
+<p align="center"><em>From a broad search to a focused application queue: the dashboard tracks screened roles, qualified opportunities, and next actions.</em></p>
+
+<p align="center">
+  <img src="docs/fit-ranked-shortlist.png" alt="Ranked job shortlist with fit scores, sponsorship signals, match rationale, and application links" width="100%">
+</p>
+
+<p align="center"><em>Each shortlisted role includes an explainable fit score, sponsorship signal, match rationale, and direct application path.</em></p>
+
+## How It Works
+
+![AI Job Discovery and Fit-Ranking Skill architecture](docs/job-discovery-architecture.png)
+
+The skill follows one decision path: discover recent roles, understand each full job description, decide eligibility and fit, then return a deduplicated application shortlist. Sponsorship is one input to the decision—not the product's entire purpose.
+
+### Decision Logic
+
+```mermaid
+flowchart LR
+    A[Discover recent roles] --> B[Open full JD]
+    B --> C{Explicit sponsorship conflict?}
+    C -- Yes --> X[Reject]
+    C -- No or silent --> D[Compare JD with candidate profile]
+    D --> E{Fit threshold met?}
+    E -- No --> X
+    E -- Yes --> F[Deduplicate and check local history]
+    F --> G[Rank by fit, then recency]
+    G --> H[Return application links]
+```
 
 ## Why I Built This
 
@@ -22,21 +61,6 @@ This open-source agent skill discovers recent roles across job boards and employ
 - Prefers employer or ATS application links and can exclude LinkedIn Easy Apply.
 - Deduplicates cross-posted jobs and suppresses roles already presented, applied to, or skipped.
 - Returns a ranked shortlist; it never submits an application.
-
-## Workflow
-
-```mermaid
-flowchart LR
-    A[Discover recent roles] --> B[Open full JD]
-    B --> C{Explicit sponsorship conflict?}
-    C -- Yes --> X[Reject]
-    C -- No or silent --> D[Compare JD with candidate profile]
-    D --> E{Fit threshold met?}
-    E -- No --> X
-    E -- Yes --> F[Deduplicate and check local history]
-    F --> G[Rank by fit, then recency]
-    G --> H[Return application links]
-```
 
 The sponsorship rule is deliberately conservative: a current explicit denial is a hard veto, while a silent posting survives with an `unknown` signal. Historical H-1B activity may strengthen ranking, but it does not override the current posting or prove that a specific role will sponsor.
 
